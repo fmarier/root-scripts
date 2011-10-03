@@ -1,0 +1,5 @@
+#!/bin/sh
+# Prevents annoying kernel messages from the firewall dropping packets
+# from being displayed on the console
+
+/bin/dmesg -n3

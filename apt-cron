@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Pre-resolve DNS entries
+for u in ftp.us.debian.org debian.catalyst.net.nz ftp.nz.debian.org mirror.optus.net ; do
+    dig +time=10 > /dev/null 2>&1
+done
+
+# Keep package lists up to date
+/usr/bin/apt-get -qq update > /dev/null 2>&1
+/usr/bin/apt-file update
+/usr/bin/debtags update
+/usr/bin/wajig update-pci-ids > /dev/null 2>&1
+/usr/bin/wajig update-usb-ids > /dev/null 2>&1
+/usr/sbin/update-command-not-found -n > /dev/null 2>&1
+
+# Pre-download packages (to speed up manual updates)
+/usr/bin/apt-get -qq clean
+/usr/bin/apt-get --download-only --assume-yes --force-yes --allow-unauthenticated -qq dist-upgrade > /dev/null 2>&1
+
+# Remove unnecessary debs from the cache
+/usr/bin/apt-get -qq autoclean
+
+# Rebuild dpkg database
+# (see http://antti-juhani.kaijanaho.fi/newblog/archives/521)
+/usr/bin/dpkg --clear-avail
+/usr/sbin/sync-available > /dev/null
