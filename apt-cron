@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# Pre-resolve DNS entries
-for u in ftp.us.debian.org cdn.debian.net ftp.debian.org ; do
-    dig +time=10 > /dev/null 2>&1
-done
-
 # Keep package lists up to date
 chronic /usr/bin/apt-get -qq update
 /usr/bin/debtags update
