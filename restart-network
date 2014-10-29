@@ -1,0 +1,3 @@
+#!/bin/sh
+rmmod e1000e
+modprobe e1000e
