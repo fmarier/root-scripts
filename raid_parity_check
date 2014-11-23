@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Usage: $0 md0|md2
+
+echo "check" > /sys/block/$1/md/sync_action
