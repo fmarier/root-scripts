@@ -18,3 +18,6 @@ chronic /usr/bin/apt-get --download-only --assume-yes --force-yes -qq dist-upgra
 # (see http://antti-juhani.kaijanaho.fi/newblog/archives/521)
 /usr/bin/dpkg --clear-avail
 /usr/sbin/sync-available > /dev/null
+
+# Look for obsolete config files
+dpkg-query -W -f='${Conffiles}\n' | grep obsolete
