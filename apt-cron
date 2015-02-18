@@ -24,3 +24,6 @@ dpkg-query -W -f='${Conffiles}\n' | grep obsolete
 
 # Look for removed (but not purged) packages
 dpkg -l | grep -i '^rc\s.*$'
+
+# Swallow error codes (rely on output to stdout/stderr)
+/bin/true
