@@ -1,0 +1,26 @@
+#/bin/bash
+#
+# Most of these tips come from this blog post:
+#
+#   http://www.cyberciti.biz/tips/linux-raid-increase-resync-rebuild-speed.html
+#
+# Something else that might help is to disable NCQ on the drives themselves:
+#
+#     echo 1 > /sys/block/sda/device/queue_depth
+
+if [ "$1" = "" ] ; then
+    echo "Usage: $0 /dev/mdX"
+    exit 1;
+fi
+
+#echo mdadm --grow --bitmap=internal "$1"
+blockdev --setra 65536 "$1"
+echo 300000 > /proc/sys/dev/raid/speed_limit_min
+echo 1000000 > /proc/sys/dev/raid/speed_limit_max
+
+echo "Start the RAID array rebuild (for example, by re-adding a disk) and press Enter."
+echo "Then hit Ctrl+C when the rebuild is done."
+read
+watch -n 5 cat /proc/mdstat
+
+#echo mdadm --grow --bitmap=none "$1"
