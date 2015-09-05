@@ -3,13 +3,13 @@
 # Warn about dummy packages
 ORPHAN_FILE=/var/log/deborphans
 if [ -e "$ORPHAN_FILE" ]; then
-	OLD_ORPHANS=$(cat $ORPHAN_FILE)
-	DUMMY=$(deborphan --guess-dummy | grep -v "$OLD_ORPHANS")
+    OLD_ORPHANS=$(cat $ORPHAN_FILE)
+    DUMMY=$(deborphan --guess-dummy | grep -v "$OLD_ORPHANS")
 else
-	DUMMY=$(deborphan --guess-dummy)
+    DUMMY=$(deborphan --guess-dummy)
 fi
 if [ -n "$DUMMY" ]; then
-	echo "The following dummy packages are installed and can be safely removed:"
-	echo "$DUMMY"
-	echo "$DUMMY" >> $ORPHAN_FILE
+    echo "The following dummy packages are installed and can be safely removed:"
+    echo "$DUMMY"
+    echo "$DUMMY" >> $ORPHAN_FILE
 fi
