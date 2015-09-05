@@ -1,0 +1,3 @@
+test:
+	@echo Running shellcheck...
+	@shellcheck [a-z]*

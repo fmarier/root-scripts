@@ -20,6 +20,7 @@ chronic /usr/bin/apt-get --download-only --assume-yes --force-yes -qq dist-upgra
 /usr/sbin/sync-available > /dev/null
 
 # Look for obsolete config files
+# shellcheck disable=SC2016
 dpkg-query -W -f='${Conffiles}\n' | grep obsolete
 
 # Look for removed (but not purged) packages
