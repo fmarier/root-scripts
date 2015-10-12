@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/sbin/tlp setcharge 40 80
