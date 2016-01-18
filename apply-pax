@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Heavily based on https://micahflee.com/2016/01/debian-grsecurity/
+
+/sbin/paxctl -cm /usr/bin/gnome-shell
+/sbin/paxctl -cpm /usr/sbin/grub-probe
+/sbin/paxctl -cpm /usr/sbin/grub-mkdevicemap
+/sbin/paxctl -cpm /usr/sbin/grub-install
+/sbin/paxctl -cpm /usr/bin/grub-script-check
+/sbin/paxctl -cpm /usr/bin/grub-mount
+/sbin/paxctl -cm /usr/bin/python2
+/sbin/paxctl -cm /usr/bin/python3
+/sbin/paxctl -cm /usr/lib/iceweasel/iceweasel
+/sbin/paxctl -cm /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
