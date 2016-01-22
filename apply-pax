@@ -11,4 +11,5 @@
 /sbin/paxctl -cm /usr/bin/python2
 /sbin/paxctl -cm /usr/bin/python3
 /sbin/paxctl -cm /usr/lib/iceweasel/iceweasel
+/sbin/paxctl -cm /usr/lib/chromium/chromium
 /sbin/paxctl -cm /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
