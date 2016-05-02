@@ -10,7 +10,6 @@
 /sbin/paxctl -cpm /usr/bin/grub-mount
 /sbin/paxctl -cm /usr/bin/python2
 /sbin/paxctl -cm /usr/bin/python3
-/sbin/paxctl -cm /usr/bin/python3.4
 /sbin/paxctl -cm /usr/bin/python3.5
 /sbin/paxctl -cm /usr/lib/firefox/firefox
 /sbin/paxctl -cm /usr/lib/chromium/chromium
