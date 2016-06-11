@@ -20,6 +20,7 @@ chronic /usr/bin/apt-get --download-only --assume-yes --force-yes -qq dist-upgra
 /usr/sbin/sync-available > /dev/null
 
 # Look for obsolete config files
+# https://lists.debian.org/debian-mentors/2013/05/msg00115.html
 # shellcheck disable=SC2016
 dpkg-query -W -f='${Conffiles}\n' | grep obsolete
 
