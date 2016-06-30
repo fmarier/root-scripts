@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Keep package lists up to date
-chronic /usr/bin/apt-get -o 'Acquire::CompressionTypes::Order::="gz"' -qq update
+/usr/bin/apt-get -qq update > /dev/null 2>&1
 /usr/bin/debtags update
 /usr/sbin/update-pciids -q
 /usr/sbin/update-usbids -q
-chronic /usr/sbin/update-command-not-found
+/usr/sbin/update-command-not-found > /dev/null 2>&1
 
 # Pre-download packages (to speed up manual updates)
 /usr/bin/apt-get -qq clean
