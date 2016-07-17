@@ -13,6 +13,7 @@
 /sbin/paxctl -cm /usr/bin/python3.5
 /sbin/paxctl -cm /usr/lib/firefox/firefox
 /sbin/paxctl -cm /usr/lib/chromium/chromium
-#/sbin/paxctl -cm /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+/sbin/paxctl -cm /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 /sbin/paxctl -cm /usr/bin/git-annex
+/sbin/paxctl -cm /usr/bin/akregator
 exit 0
