@@ -8,7 +8,9 @@
 /sbin/paxctl -cpm /usr/sbin/grub-install
 /sbin/paxctl -cpm /usr/bin/grub-script-check
 /sbin/paxctl -cpm /usr/bin/grub-mount
+/sbin/paxctl -cm /usr/bin/nodejs
 /sbin/paxctl -cm /usr/bin/python2
+/sbin/paxctl -cm /usr/bin/python2.7
 /sbin/paxctl -cm /usr/bin/python3
 /sbin/paxctl -cm /usr/bin/python3.5
 /sbin/paxctl -cm /usr/lib/firefox/firefox
