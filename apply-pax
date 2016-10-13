@@ -18,4 +18,5 @@
 /sbin/paxctl -cm /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 /sbin/paxctl -cm /usr/bin/git-annex
 /sbin/paxctl -cm /usr/bin/akregator
+/sbin/paxctl -cm /usr/bin/pulseaudio
 exit 0
