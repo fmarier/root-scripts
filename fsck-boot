@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/bin/umount /boot
+/usr/bin/chronic /sbin/fsck.ext2 -p /dev/sda1
+/bin/mount /boot
