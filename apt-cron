@@ -4,7 +4,6 @@
 /usr/bin/apt-get -qq update > /dev/null 2>&1
 /usr/bin/debtags update
 /usr/sbin/update-pciids -q
-/usr/sbin/update-usbids -q
 /usr/sbin/update-command-not-found > /dev/null 2>&1
 
 # Pre-download packages (to speed up manual updates)
