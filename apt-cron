@@ -8,7 +8,7 @@
 
 # Pre-download packages (to speed up manual updates)
 /usr/bin/apt-get -qq clean
-chronic /usr/bin/apt-get --download-only --assume-yes --force-yes -qq dist-upgrade
+chronic /usr/bin/apt-get --download-only --assume-yes -qq dist-upgrade
 
 # Remove unnecessary debs from the cache
 /usr/bin/apt-get -qq autoclean
