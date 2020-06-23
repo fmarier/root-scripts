@@ -3,7 +3,7 @@
 # Keep package lists up to date
 /usr/bin/apt-get -qq update > /dev/null 2>&1
 /usr/bin/debtags update
-rm -f /usr/share/misc/pci.ids.old
+rm -f /usr/share/misc/pci.ids.old /usr/share/misc/pci.ids.gz.old
 /usr/sbin/update-pciids -q
 /usr/sbin/update-command-not-found > /dev/null 2>&1
 
