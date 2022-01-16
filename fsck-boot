@@ -2,7 +2,7 @@
 
 /bin/umount /boot
 /bin/umount /mnt/boot
-/usr/bin/chronic /sbin/fsck.ext2 -p /dev/sda1
-/usr/bin/chronic /sbin/fsck.ext2 -p /dev/sdb1
+/usr/bin/chronic /sbin/fsck.ext4 -p -f -c /dev/sda1
+/usr/bin/chronic /sbin/fsck.ext4 -p -f -c /dev/sdb1
 /bin/mount /boot
 /bin/mount /mnt/boot
