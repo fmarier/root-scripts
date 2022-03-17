@@ -1,8 +1,15 @@
 #!/bin/bash
 
-/bin/umount /boot
-/bin/umount /mnt/boot
-/usr/bin/chronic /sbin/fsck.ext4 -p -f -c /dev/sda1
-/usr/bin/chronic /sbin/fsck.ext4 -p -f -c /dev/sdb1
-/bin/mount /boot
-/bin/mount /mnt/boot
+if lockfile /var/lock/partition-boot ; then
+    umount /boot
+    /usr/bin/chronic /sbin/fsck.ext4 -p -f -c /dev/disk/by-uuid/20aa2da0-d6d8-4eac-976c-17aff66b442b
+    /bin/mount /boot
+    rm -f /var/lock/partition-boot
+fi
+
+if lockfile /var/lock/partition-mnt-boot ; then
+    umount /mnt/boot
+    /usr/bin/chronic /sbin/fsck.ext4 -p -f -c /dev/disk/by-uuid/ceaedca4-0611-460d-9139-5cfa65465fec
+    /bin/mount /mnt/boot
+    rm -f /var/lock/partition-mnt-boot
+fi
