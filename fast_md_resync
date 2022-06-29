@@ -20,7 +20,7 @@ echo 1000000 > /proc/sys/dev/raid/speed_limit_max
 
 echo "Start the RAID array rebuild (for example, by re-adding a disk) and press Enter."
 echo "Then hit Ctrl+C when the rebuild is done."
-read
+read -r
 watch -n 5 cat /proc/mdstat
 
 #echo mdadm --grow --bitmap=none "$1"
