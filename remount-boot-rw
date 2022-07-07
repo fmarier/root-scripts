@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if lockfile /var/lock/partition-boot ; then
-    mount -o remount,ro /boot
+    mount -o remount,rw /boot
     rm -f /var/lock/partition-boot
 else
-    echo "Cannot re-mount /boot ro"
+    echo "Cannot re-mount /boot rw"
     exit 1
 fi
