@@ -1,8 +1,13 @@
 #!/bin/bash
 
-rm -f /var/lock/partition-boot /var/lock/partition-boot.remount-boot-rw
+rm -f /var/lock/partition-boot /var/lock/partition-boot.remount-rw
 echo "Remounting /boot as ro after dpkg run"
 if ! mount -o remount,ro /boot ; then
     echo "Cannot re-mount /boot ro"
-    exit 1
+fi
+
+rm -f /var/lock/partition-boot-efi /var/lock/partition-boot-efi.remount-rw
+echo "Remounting /boot/efi as ro after dpkg run"
+if ! mount -o remount,ro /boot/efi ; then
+    echo "Cannot re-mount /boot/efi ro"
 fi

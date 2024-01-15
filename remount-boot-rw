@@ -2,9 +2,18 @@
 
 if lockfile -r 8 /var/lock/partition-boot ; then
     echo "Remounting /boot as rw before dpkg run"
-    touch /var/lock/partition-boot.remount-boot-rw
+    touch /var/lock/partition-boot.remount-rw
     mount -o remount,rw /boot
 else
     echo "Cannot re-mount /boot rw"
+    exit 1
+fi
+
+if lockfile -r 8 /var/lock/partition-boot-efi ; then
+    echo "Remounting /boot/efi as rw before dpkg run"
+    touch /var/lock/partition-boot-efi.remount-rw
+    mount -o remount,rw /boot/efi
+else
+    echo "Cannot re-mount /boot/efi rw"
     exit 1
 fi
